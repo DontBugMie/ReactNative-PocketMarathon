@@ -9,6 +9,10 @@ const SetTimeScreen = props => {
     );
 };
 
+SetTimeScreen.navigationOptions = {
+    headerTitle: 'Create Workout Plan',
+};
+
 const styles = StyleSheet.create({
 
 });
