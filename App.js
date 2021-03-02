@@ -23,13 +23,12 @@ const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <PocketMarathonNavigator/>
-    </Provider>
-    
+      <Provider store={store}>
+        <PocketMarathonNavigator/>
+      </Provider>
   );
 }
 
 const styles = StyleSheet.create({
- 
+  
 });

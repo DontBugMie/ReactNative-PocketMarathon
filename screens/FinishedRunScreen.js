@@ -32,7 +32,7 @@ const HomeScreen = props => {
             </View>
             <Text>SAVE RUN</Text>
             <TextInput style={textInput} onChangeText={saveRunNameChangeHandler} value={saveRunNameCompletedRun}/>
-            <Button title="SAVE RUN" color={Colors.primary} onPress={()=>{saveRunBtnHandler}}/>
+            <Button title="SAVE RUN" color={Colors.darkest} onPress={()=>{saveRunBtnHandler}}/>
                
 
             <Text>SET REMINDER</Text>

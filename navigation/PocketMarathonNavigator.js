@@ -30,9 +30,9 @@ const PocketMarathonNavigator = createStackNavigator({
 {   // default layout for screens
         defaultNavigationOptions:{
             headerStyle:{
-                backgroundColour: Platform.OS === 'android' ? Colors.primary : ''
+                backgroundColour: Platform.OS === 'android' ? Colors.darkest : ''
         },
-        headerTintColor: Platform.OS === 'android' ? 'white' : Colours.primary
+        headerTintColor: Platform.OS === 'android' ? 'white' : Colors.darkest
         }
     }
 );
