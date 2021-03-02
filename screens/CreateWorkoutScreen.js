@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { ScrollView, View, Text, TextInput, StyleSheet, Platform, Button } from 'react-native';
+import { ScrollView, View, Text, TextInput, FlatList, StyleSheet, Platform, Button } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+
 
 import HeaderButton from '../components/HeaderButton';
 import * as workoutActions from '../store/workout-actions';
 
-
+import WorkoutItem from '../components/WorkoutItem';
 
 
 
@@ -33,7 +35,11 @@ const CreateWorkoutScreen = props => {
 
     const startWorkoutHandler = () =>{
         props.navigation.navigate('TotalTimeSummaryScreen');
-    }
+    };
+
+    const workouts = useSelector( state => state.workoutsReducer.workouts);
+
+    
 
 
     return (
@@ -50,6 +56,8 @@ const CreateWorkoutScreen = props => {
             <View style={styles.workoutDisplayView}>
                 <ScrollView style={styles.workoutScreen}>
                     <Text>This is where the screen to see the work out intervals go</Text>
+                    <FlatList data={workouts} keyExtractor={item => item.id} renderItem={itemData => <WorkoutItem image={null} title={itemData.item.title} address={null} onSelect={()=>{
+                props.navigation.navigate('TotalTimeSummaryScreen', {workoutTitle : itemData.item.title, workoutId: itemData.item.id })}}/>}/>
                 </ScrollView>
             </View>
             <Text>Timer</Text>
