@@ -10,10 +10,10 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import PocketMarathonNavigator from './navigation/PocketMarathonNavigator';
-import runReducer from './store/workout-reducer';
+import workoutsReducer from './store/workout-reducer';
 
 const rootReducer = combineReducers({
-  runReducer: runReducer
+  workoutsReducer: workoutsReducer
 });
 
 

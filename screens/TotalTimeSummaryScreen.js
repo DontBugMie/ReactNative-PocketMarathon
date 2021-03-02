@@ -9,6 +9,12 @@ const TotalTimeSummaryScreen = props => {
     );
 };
 
+TotalTimeSummaryScreen.navigationOptions = navData => {
+    return {
+        headerTitle: navData.navigation.getParam('workoutTitle')
+    };
+}
+
 const styles = StyleSheet.create({
 
 });
