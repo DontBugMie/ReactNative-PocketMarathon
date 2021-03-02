@@ -56,8 +56,10 @@ const CreateWorkoutScreen = props => {
             <View style={styles.workoutDisplayView}>
                 <ScrollView style={styles.workoutScreen}>
                     <Text>This is where the screen to see the work out intervals go</Text>
-                    <FlatList data={workouts} keyExtractor={item => item.id} renderItem={itemData => <WorkoutItem image={null} title={itemData.item.title} address={null} onSelect={()=>{
-                props.navigation.navigate('TotalTimeSummaryScreen', {workoutTitle : itemData.item.title, workoutId: itemData.item.id })}}/>}/>
+                    <FlatList data={workouts} keyExtractor={item => item.id} renderItem={itemData => <WorkoutItem image={null} title={itemData.item.title} address={null} 
+                    onSelect={()=>{
+                props.navigation.navigate('', {workoutTitle : itemData.item.title, workoutId: itemData.item.id })}}/>}
+                />
                 </ScrollView>
             </View>
             <Text>Timer</Text>

@@ -214,16 +214,16 @@ const HomeScreen = props => {
 HomeScreen.navigationOptions = navData => {
     return { 
         headerTitle: 'Home',
-        headerRight: <HeaderButtons HeaderButtonComponent={HeaderButton}>
-            <Item 
-            title='Add Place' 
-            iconName={Platform.OS === 'android' ? 'md-add' : 'ios-add'}
-            //below determines what page the app goes to when the button is clicked
-            onPress = {() =>{
-                navData.navigation.navigate('CreateWorkoutScreen')
-            }}
-            />
-        </HeaderButtons>
+        // headerRight: <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        //     <Item 
+        //     title='Add Place' 
+        //     iconName={Platform.OS === 'android' ? 'md-add' : 'ios-add'}
+        //     //below determines what page the app goes to when the button is clicked
+        //     onPress = {() =>{
+        //         navData.navigation.navigate('CreateWorkoutScreen')
+        //     }}
+        //     />
+        // </HeaderButtons>
 
     };
 };
