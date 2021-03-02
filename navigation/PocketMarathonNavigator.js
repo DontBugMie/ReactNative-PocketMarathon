@@ -12,8 +12,9 @@ import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from '../screens/HomeScreen';
 import CreateWorkoutScreen from '../screens/CreateWorkoutScreen';
 import TotalTimeSummaryScreen from '../screens/TotalTimeSummaryScreen';
-import RunningScreen from '../screens/RunningScreen';
+import WorkoutScreen from '../screens/WorkoutScreen';
 import FinishedRunScreen from '../screens/FinishedRunScreen';
+import PastWorkoutsScreen from '../screens/PastWorkoutsScreen';
 
 //import colours for the default layout of the screens 
 
@@ -24,8 +25,10 @@ const PocketMarathonNavigator = createStackNavigator({
     HomeScreen: HomeScreen,
     CreateWorkoutScreen: CreateWorkoutScreen,
     TotalTimeSummaryScreen: TotalTimeSummaryScreen,
-    RunningScreen: RunningScreen,
+    WorkoutScreen: WorkoutScreen,
     FinishedRunScreen: FinishedRunScreen,
+    PastWorkoutsScreen: PastWorkoutsScreen,
+
 }, 
 {   // default layout for screens
         defaultNavigationOptions:{

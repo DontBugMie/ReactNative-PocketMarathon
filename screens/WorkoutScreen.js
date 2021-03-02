@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const RunningScreen = props => {
+const WorkoutScreen = props => {
     return (
         <View>
-            <Text>RunningScreen</Text>
+            <Text>WorkoutScreen</Text>
         </View>
     );
 };
@@ -13,4 +13,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default RunningScreen;
+export default WorkoutScreen;
