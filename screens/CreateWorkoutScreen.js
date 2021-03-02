@@ -8,6 +8,14 @@ import HeaderButton from '../components/HeaderButton';
 import * as workoutActions from '../store/workout-actions';
 
 
+
+
+
+
+
+
+
+
 const CreateWorkoutScreen = props => {
 
     const [nameWorkoutValue, setNameWorkoutValue] = useState('Name Workout');
@@ -23,6 +31,10 @@ const CreateWorkoutScreen = props => {
         dispatch(workoutActions.addWorkout(nameWorkoutValue));
         props.navigation.goBack();
     };
+
+    const startWorkoutHandler = () =>{
+        props.navigation.navigate('TotalTimeSummaryScreen');
+    }
 
 
     return (
@@ -73,7 +85,7 @@ const CreateWorkoutScreen = props => {
                 </View>
 
                 <View style={styles.startBtn}>
-                    <Button title='START'/>
+                    <Button title='START' onPress={startWorkoutHandler}/>
                 </View>
             </View>
         </View>
