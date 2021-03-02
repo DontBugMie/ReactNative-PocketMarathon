@@ -18,7 +18,7 @@ import * as workoutActions from '../store/workout-actions';
 
 const CreateWorkoutScreen = props => {
 
-    const [nameWorkoutValue, setNameWorkoutValue] = useState('Name Workout');
+    const [nameWorkoutValue, setNameWorkoutValue] = useState('');
 
     const dispatch = useDispatch();
 
@@ -29,7 +29,6 @@ const CreateWorkoutScreen = props => {
 
     const addIntervalHandler = () => {
         dispatch(workoutActions.addWorkout(nameWorkoutValue));
-        props.navigation.goBack();
     };
 
     const startWorkoutHandler = () =>{
@@ -43,6 +42,7 @@ const CreateWorkoutScreen = props => {
             <TextInput style={styles.textInput}
                 onChangeText={nameWorkoutHandler}
                 value={nameWorkoutValue}
+                placeholder="Name Workout"
             >
                 {/* //Name the workout */}
             </TextInput>
@@ -70,7 +70,7 @@ const CreateWorkoutScreen = props => {
                 </View>
 
                 <View style={styles.time_distanceContainer}>
-                    <View style={styles.timer}><TextInput>This is where the timer goes</TextInput></View>
+                    <View style={styles.timer}><TextInput placeholder="This is where the timer goes"></TextInput></View>
                     <View style={styles.distanceBtn}><Text>km</Text></View>
                     <View style={styles.timeBtn}><Text>hrs</Text></View>
                 </View>

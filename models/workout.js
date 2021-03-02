@@ -6,7 +6,8 @@ let titleDafaultString =  titleDefaultArr[2] + "/" + titleDefaultArr[1] + "/" + 
 
 
 class Workout {
-    constructor(id, title = titleDafaultString){
+    // constructor(id, title = titleDafaultString){
+        constructor(id, title){
         this.id = id;
         this.title = title;
     }
