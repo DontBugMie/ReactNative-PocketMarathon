@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, View, Text, TextInput, FlatList, StyleSheet, Platform, Button } from 'react-native';
+import { ScrollView, View, Text, TextInput, FlatList, StyleSheet, Platform, Button, Modal } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useDispatch } from 'react-redux';
@@ -74,14 +74,12 @@ const CreateWorkoutScreen = props => {
                 </ScrollView>
             </View>
 
-{/* //. */}
 
 
 
 
 
             <Text>Timer</Text>
-            <View>
                 <View style={styles.speedIntervalContainer}>
                     <View style={styles.walkBtn}>
                         <Button title="WALK"/>
@@ -96,6 +94,50 @@ const CreateWorkoutScreen = props => {
                         <Button title="SPRINT"/>
                     </View>
                 </View>
+            <View>
+
+
+                <Modal transparent={false} style={styles.modal}>
+                    <View style={[styles.modal, styles.walkBtn]}>
+                        <Text style={styles.speed}>WALK</Text>
+                    </View>
+                    <View style={[styles.modal, styles.time_distanceContainer]}>
+                        <Text>   O Time   </Text>
+                        <Text>O Km   </Text>
+                        <Text>O Miles   </Text>
+                    </View>
+
+                    <View style={[styles.modal, styles.timeDistanceContainer]}>
+                        <View style={[styles.modal, styles.timeDistanceContainerUnit]}>
+                            <TextInput placeholder="00">
+
+                            </TextInput>
+                            <Text>:</Text>
+                            <TextInput placeholder="00">
+
+                            </TextInput>
+                            <Text>:</Text>
+                            <TextInput placeholder="00">
+
+                            </TextInput>
+                        </View>
+
+                    </View>
+                    <View style={styles.intervalUnitsContainer}>
+                    </View>
+                </Modal>
+
+
+
+
+
+
+
+
+
+
+
+
 
                 <View style={styles.time_distanceContainer}>
                     <View style={styles.timer}><TextInput placeholder="This is where the timer goes"></TextInput></View>
@@ -242,6 +284,33 @@ const styles = StyleSheet.create({
         borderRadius:5,
         textAlign:'left',
         textAlignVertical: 'center',
+    },
+    modal:{
+        textAlign: 'center', 
+        justifyContent:'center',
+    },
+    intervalUnitsContainer:{
+        justifyContent:'center',
+        alignContent: 'center',
+        flexDirection:'row'
+    },
+    timeDistanceContainer:{
+        // flexDirection:'column',
+        width:'100%',
+        height: '20%',
+        backgroundColor:'pink',
+        justifyContent:'center',
+        textAlign:'center',
+    },
+    timeDistanceContainerUnit:{
+        alignContent:'center',
+        justifyContent:'center',
+        textAlign:'center',
+        flexDirection:'row',
+        textAlignVertical:'center',
+        backgroundColor:'green',
+        borderWidth:2,
+        
     }
 });
 
