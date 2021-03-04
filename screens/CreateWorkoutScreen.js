@@ -10,7 +10,7 @@ import HeaderButton from '../components/HeaderButton';
 import * as workoutActions from '../store/workout-actions';
 
 import IntervalItem from '../components/IntervalItem';
-
+import MyComponent from '../components/RadioBtn';
 
 
 
@@ -97,33 +97,43 @@ const CreateWorkoutScreen = props => {
             <View>
 
 
-                <Modal transparent={false} style={styles.modal}>
+                <Modal transparent={true} style={[styles.modal, styles.modalContainer]}>
+                    <View style={styles.modalContainerBackground}>
+                    <View style={styles.modalContainer}>
+                        <View style={styles.cancelBtn}>
+                            <Text style={styles.cancelBtnText}>X</Text>
+                        </View>
                     <View style={[styles.modal, styles.walkBtn]}>
                         <Text style={styles.speed}>WALK</Text>
                     </View>
                     <View style={[styles.modal, styles.time_distanceContainer]}>
-                        <Text>   O Time   </Text>
-                        <Text>O Km   </Text>
-                        <Text>O Miles   </Text>
+                        {/* <Button title="TIME"/>
+                         */}
+                        <Text>TIME</Text>
+                        <MyComponent status="unchecked"/>
+                        <Button title="KM"/>
+                        <MyComponent/>
+                        <Button title="MILES"/>
+                        <MyComponent/>
                     </View>
 
                     <View style={[styles.modal, styles.timeDistanceContainer]}>
                         <View style={[styles.modal, styles.timeDistanceContainerUnit]}>
-                            <TextInput placeholder="00">
-
+                            <TextInput placeholder="00" style={styles.intervalUnitsContainer}>
                             </TextInput>
-                            <Text>:</Text>
-                            <TextInput placeholder="00">
-
+                            <Text style={styles.intervalUnit}>hrs</Text>
+                            <TextInput placeholder="00" style={styles.intervalUnitsContainer}>
                             </TextInput>
-                            <Text>:</Text>
-                            <TextInput placeholder="00">
-
+                            <Text style={styles.intervalUnit}>mins</Text>
+                            <TextInput placeholder="00" style={styles.intervalUnitsContainer}>
                             </TextInput>
+                            <Text style={styles.intervalUnit}>secs</Text>
                         </View>
-
                     </View>
-                    <View style={styles.intervalUnitsContainer}>
+                    <View style={styles.addIntervalBtn}>
+                        <Button title='ADD' style={styles.add} onPress={addIntervalHandler}/>
+                    </View>
+                    </View>
                     </View>
                 </Modal>
 
@@ -288,11 +298,13 @@ const styles = StyleSheet.create({
     modal:{
         textAlign: 'center', 
         justifyContent:'center',
+        alignItems:'center',
     },
     intervalUnitsContainer:{
         justifyContent:'center',
         alignContent: 'center',
-        flexDirection:'row'
+
+        // flexDirection:'row'
     },
     timeDistanceContainer:{
         // flexDirection:'column',
@@ -301,6 +313,8 @@ const styles = StyleSheet.create({
         backgroundColor:'pink',
         justifyContent:'center',
         textAlign:'center',
+        alignContent:'center',
+        alignSelf:'center'
     },
     timeDistanceContainerUnit:{
         alignContent:'center',
@@ -308,9 +322,53 @@ const styles = StyleSheet.create({
         textAlign:'center',
         flexDirection:'row',
         textAlignVertical:'center',
-        backgroundColor:'green',
+        // backgroundColor:'green',
         borderWidth:2,
         
+    },
+    modalContainer:{
+        width:'85%',
+        height:'70%',
+        backgroundColor:'white',
+        justifyContent:'center',
+        // alignContent:'center',
+        alignSelf:'center',
+        textAlign:'center',
+        marginTop:'25%',
+        borderRadius: 10,
+        // textAlignVertical:'center' 
+    },
+    modalContainerBackground:{
+        width:'100%',
+        height:'100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.70)',
+    },
+    intervalUnitsContainer:{
+        padding:15,
+        fontSize:50,
+        minWidth: '30%',
+        maxWidth:'30%',
+    },
+    horizontal:{
+        flexDirection: 'row',
+    },
+    intervalUnit:{
+        marginLeft:-15
+    },
+    addIntervalBtn: {
+        justifyContent:'center',
+        textAlign: 'center',
+        backgroundColor:'green'
+    },
+    add:{
+        textAlign:'center',
+        padding:15,
+    },
+    cancelBtn:{
+        textAlign:'right'
+    },
+    cancelBtnText:{
+        textAlign:'right',
     }
 });
 
