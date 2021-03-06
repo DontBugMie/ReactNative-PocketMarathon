@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, View, Text, TextInput, FlatList, StyleSheet, Platform, Button, Modal } from 'react-native';
+import { ScrollView, View, Text, TextInput, FlatList, StyleSheet, Platform, TouchableOpacity, Button, Modal, Touchable, Animated } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useDispatch } from 'react-redux';
@@ -40,7 +40,12 @@ const CreateWorkoutScreen = props => {
 
     const workouts = useSelector( state => state.workoutsReducer.workouts);
 
-    
+    const [hideModal, showModal] = useState(false);
+
+    function addHideHandler(){
+        showModal(false);
+        addIntervalHandler();
+    } 
 
 
     return (
@@ -66,7 +71,7 @@ const CreateWorkoutScreen = props => {
                     </View>
 
                     
-                    <FlatList horizontal = {true} style={styles.flatlistContainer} data={workouts} keyExtractor={item => item.id} renderItem={itemData => <IntervalItem image={null} title={itemData.item.title} address={null} 
+                    <FlatList horizontal = {true} style={styles.flatlistContainer} data={workouts} keyExtractor={item => item.id} renderItem={itemData => <IntervalItem image={null} title={itemData.item.title} address={null} col='green'
                     onSelect={()=>{
                 props.navigation.navigate('', {workoutTitle : itemData.item.title, workoutId: itemData.item.id })}}/>}
                 />
@@ -79,10 +84,10 @@ const CreateWorkoutScreen = props => {
 
 
 
-            <Text>Timer</Text>
+           
                 <View style={styles.speedIntervalContainer}>
                     <View style={styles.walkBtn}>
-                        <Button title="WALK"/>
+                        <Button title="WALK" onPress={()=>showModal(true)}/>
                     </View>
                     <View style={styles.jogBtn}>
                         <Button title="JOG"/>
@@ -96,9 +101,9 @@ const CreateWorkoutScreen = props => {
                 </View>
             <View>
 
-
-                <Modal transparent={true} style={[styles.modal, styles.modalContainer]}>
-                    <View style={styles.modalContainerBackground}>
+                <Modal visible={hideModal} transparent={true} style={[styles.modal, styles.modalContainer]}>
+                <TouchableOpacity onPress={()=>showModal(false)}>
+                    <Animated.View style={styles.modalContainerBackground} >
                     <View style={styles.modalContainer}>
                         <View style={styles.cancelBtn}>
                             <Text style={styles.cancelBtnText}>X</Text>
@@ -107,34 +112,34 @@ const CreateWorkoutScreen = props => {
                         <Text style={styles.speed}>WALK</Text>
                     </View>
                     <View style={[styles.modal, styles.time_distanceContainer]}>
-                        {/* <Button title="TIME"/>
-                         */}
-                        <Text>TIME</Text>
+                        <Button title="TIME"/>
                         <MyComponent status="unchecked"/>
                         <Button title="KM"/>
-                        <MyComponent/>
+                        <MyComponent value="first"/>
+                        
                         <Button title="MILES"/>
-                        <MyComponent/>
+                        <MyComponent value="second"/>
                     </View>
 
                     <View style={[styles.modal, styles.timeDistanceContainer]}>
                         <View style={[styles.modal, styles.timeDistanceContainerUnit]}>
-                            <TextInput placeholder="00" style={styles.intervalUnitsContainer}>
+                            <TextInput placeholder="00" style={styles.intervalUnitsContainer} keyboardType='number-pad'>
                             </TextInput>
                             <Text style={styles.intervalUnit}>hrs</Text>
-                            <TextInput placeholder="00" style={styles.intervalUnitsContainer}>
+                            <TextInput placeholder="00" style={styles.intervalUnitsContainer} keyboardType='number-pad'>
                             </TextInput>
                             <Text style={styles.intervalUnit}>mins</Text>
-                            <TextInput placeholder="00" style={styles.intervalUnitsContainer}>
+                            <TextInput placeholder="00" style={styles.intervalUnitsContainer} keyboardType='number-pad'>
                             </TextInput>
                             <Text style={styles.intervalUnit}>secs</Text>
                         </View>
                     </View>
                     <View style={styles.addIntervalBtn}>
-                        <Button title='ADD' style={styles.add} onPress={addIntervalHandler}/>
+                        <Button title='ADD' onPress={()=> addHideHandler()} style={styles.add}/>
                     </View>
                     </View>
-                    </View>
+                    </Animated.View>
+                </TouchableOpacity>
                 </Modal>
 
 
@@ -148,17 +153,16 @@ const CreateWorkoutScreen = props => {
 
 
 
-
-                <View style={styles.time_distanceContainer}>
+                {/* <View style={styles.time_distanceContainer}>
                     <View style={styles.timer}><TextInput placeholder="This is where the timer goes"></TextInput></View>
                     <View style={styles.distanceBtn}><Text>km</Text></View>
                     <View style={styles.timeBtn}><Text>hrs</Text></View>
-                </View>
+                </View> */}
 
                 <View style={styles.add_deleteButtonsContainer}>
-                    <View style={styles.addBtn}>
+                    {/* <View style={styles.addBtn}>
                         <Button title="ADD" onPress={addIntervalHandler}/>
-                    </View>
+                    </View> */}
                     <View style={styles.deleteBtn}>
                         <Button title="DELETE" style={styles.deleteBtn}/>
                     </View>

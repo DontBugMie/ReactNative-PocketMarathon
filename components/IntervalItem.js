@@ -15,10 +15,10 @@ const IntervalItem = props => {
 
     let percentage = 100;
     let radius = 65;
-    let strokeWidth = 10;
+    let strokeWidth = 5;
     let duration = 1000;
-    let color = 'pink';
-    let delay = 10;
+    let color = `${props.col}`;
+    let delay = 300;
     let textColor;
     let max = 100;
 
@@ -94,7 +94,7 @@ const IntervalItem = props => {
         defaultValue="00:00:00"
         style={[
             StyleSheet.absoluteFillObject,
-            { fontSize: radius/3, color: 'pink' ?? color },
+            { fontSize: radius/3, color: `${props.col}` ?? color },
             { frontWeight: '900', textAlign: 'center' },
         ]}
         />
