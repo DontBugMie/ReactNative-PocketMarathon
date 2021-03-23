@@ -11,3 +11,13 @@ Pocket Marathon is still a work in progress. Features that will be added in the 
                                - workout calendar contributions. Be able to see when you worked out in a colour coded calendar similar to the git hub contributions calendar. 
                                - Compete against mates 
                                - Compete against your last / best run times.
+
+
+
+
+To Start:
+1. run npm i
+2. run npm start
+3. Get working out! :)
+
+Ideas and suggestions welcomed :D 
